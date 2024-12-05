@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <section>
+    	<div class="row">
+    	<div>
+    	<div class="container mb-5 ">
+    		<h1 class="text-primary text-center my-4 fw-bold">Enquiry Form</h1>	
+    		
+    		<div th:if="${message}">
+  				<p th:text="${message}" class="alert alert-success alert-dismissible"></p>
+  			</div>
+  			
+    		<form th:object="${registrationDao}" method="post" enctype="multipart/form-data">
+    			<div class="row bg-primary py-5">
+    			<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Name</label>
+  					<input type="text" th:field="${registrationDao.name}"  class="form-control" id="exampleFormControlInput1" placeholder="Enter your name..." >
+  					<p class="text-danger" th:if="${#fields.hasErrors('name')}" th:Errors="${registrationDao.name}"></p>
+				</div>
+				
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Select Gender</label>
+  					<input type="radio"  th:field="${registrationDao.gender}" class="form-check-input bg-danger" value="male">Male &nbsp;
+					<input type="radio"  th:field="${registrationDao.gender}" class="form-check-input bg-danger" value="female">Female &nbsp;
+					<input type="radio"  th:field="${registrationDao.gender}" class="form-check-input bg-danger" value="other">Other &nbsp;
+					<p class="text-danger" th:if="${#fields.hasErrors('gender')}" th:Errors="${registrationDao.gender}"></p>
+				</div>
+				
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Date of Birth</label>
+  					<input type="date"  th:field="${registrationDao.dob}" class="form-control" id="exampleFormControlInput1">
+					<p class="text-danger" th:if="${#fields.hasErrors('dob')}" th:Errors="${registrationDao.dob}"></p>
+				</div>
+				
+				
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Contact No.</label>
+  					<input type="number"  th:field="${registrationDao.contactno}" class="form-control" id="exampleFormControlInput1" placeholder="Enter your contact number...">
+					<p class="text-danger" th:if="${#fields.hasErrors('contactno')}" th:Errors="${registrationDao.contactno}"></p>
+				</div>
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Email address</label>
+  					<input type="email"  th:field="${registrationDao.email}" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email...">
+					<p class="text-danger" th:if="${#fields.hasErrors('email')}" th:Errors="${registrationDao.email}"></p>
+				</div>
+				
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Password</label>
+  					<input type="text"  th:field="${registrationDao.password}" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password">
+					<p class="text-danger" th:if="${#fields.hasErrors('password')}" th:Errors="${registrationDao.password}"></p>
+				</div>
+				
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlTextarea1" class="form-label">Enter your Address</label>
+  					<textarea class="form-control"  th:field="${registrationDao.address}" id="exampleFormControlTextarea1" rows="3" placeholder="enter your address..."></textarea>
+					<p class="text-danger" th:if="${#fields.hasErrors('address')}" th:Errors="${registrationDao.address}"></p>
+				</div>
+				
+				<div class="col-md-8 mb-3 mx-auto">
+  					<label for="exampleFormControlInput1" class="form-label">Enter your Profile Pic</label>
+  					<input type="file"  th:field="${registrationDao.profilepic}" class="form-control" id="exampleFormControlInput1" placeholder="Enter your password">
+					<p class="text-danger" th:if="${#fields.hasErrors('profilepic')}" th:Errors="${registrationDao.profilepic}"></p>
+				</div>
+				
+				<div class="text-center">
+				<button type="submit" class="btn btn-danger px-5 py-2">Register</button>
+				</div>
+    			</div>
+    		</form>
+    	</div>
+    	</div>
+    	</div>
+    </section>
+  </body>
+</html>

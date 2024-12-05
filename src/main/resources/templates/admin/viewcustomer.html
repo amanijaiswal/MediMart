@@ -1,0 +1,47 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="admin/adminbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+<div class="main-panel w-100 row ms-auto"  style="margin-right: -8% !important;">
+        <div class="content-wrapper pb-0">
+         <h1 class="text-center">Total Customer</h1>
+         <table class="table table-bordered">
+         <thead>
+            <tr>
+            <th>Name</th>
+             <th>Gender</th>
+              <th>Date of Birth</th>
+               <th>Contact number</th>
+               <th>Email</th>
+                <th>Password</th>
+                 <th>Address</th>
+                  <th>Profile Pic</th>
+                   <th>Registration Date</th>
+                  </tr>
+         </thead>
+         <tbody>
+         <tr th:each="registration:${clist}">
+         <td th:text="${registration.name}"></td>
+         <td th:text="${registration.gender}"></td>
+         <td th:text="${registration.birthdate}"></td>
+         <td th:text="${registration.contactno}"></td>
+         <td th:text="${registration.email}"></td>
+         <td th:text="${registration.password}"></td>
+         <td th:text="${registration.address}"></td>
+         <td><img alt="image not found" th:src="@{'/profiles/' + ${registration.profile}}" height="80px" width="80px"></td>
+        <!--  <td th:text="${registration.regdate}"></td> -->
+         
+         </tr>
+         </tbody>
+         </table>
+        </div>
+        <!-- content-wrapper ends -->
+        
+        <!-- partial -->
+      </div>
+     
+
+</section>
+</body>
+</html>

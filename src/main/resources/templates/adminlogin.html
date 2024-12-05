@@ -1,0 +1,47 @@
+<html  xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+ <style>
+ .cen {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+ </style>
+  </head>
+  <body>
+  <section>
+  <div class="row">
+<div class="login-container mx-auto cen  w-40" style="margin-top:100px;    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;">
+        <h2> Admin Login</h2>
+         <div th:if="${message}">
+         <p th:text="${message}" class="alert alert-danger alert-dismissible"></p>
+         </div>
+        <form method="post" style="display: flex;
+    flex-direction: column;
+    justify-content: center;">
+            <div class="input-group m-2">
+                <label for="userid" style="min-width:130px"> Enter Your Email</label>
+                <input type="text" id="userid" name="userid" required>
+            </div>
+            <div class="input-group m-2">
+                <label for="password" style="min-width:130px">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary m-2" style="background-color: orangered;">Login</button>
+        </form>
+        
+        
+    </div>
+</div>
+</section>
+
+  </body>
+</html>

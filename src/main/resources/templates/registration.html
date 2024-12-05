@@ -1,0 +1,91 @@
+<!doctype html>
+<html  xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+  </head>
+  <body>
+  <section style="background-image:url('Image/stethoscope-doctor-md-medical-health-hospital.jpg');">
+ <div class="row">
+        <div>
+            <div class="container w-50" style=" border-radius: 10px;">
+                <h1 style="text-align: center;">Registration</h1>
+                <form th:object="${registrationDao}" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Enter Your Name</label>
+                        <input type="text" th:field="${registrationDao.name}" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter your name">
+                              <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:Errors="${registrationDao.name}"></p>
+                            
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Gender</label><br />
+                        <input class="form-check-input" th:field="${registrationDao.gender}" type="radio" value="male" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Male&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <input class="form-check-input" th:field="${registrationDao.gender}" type="radio" value="female"  id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Female&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <input class="form-check-input" th:field="${registrationDao.gender}" type="radio" value="other" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Other
+                        </label>
+                        <p class="text-danger" th:if="${#fields.hasErrors('gender')}" th:Errors="${registrationDao.gender}"></p>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Birth Date</label>
+                        <input type="date" th:field="${registrationDao.birthdate}" class="form-control" id="exampleFormControlInput1"
+                            placeholder="name@example.com">
+                        <p class="text-danger" th:if="${#fields.hasErrors('birthdate')}" th:Errors="${registrationDao.birthdate}"></p>
+                            
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Contact no</label>
+                        <input type="number" th:field="${registrationDao.contactno}" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter contact no">
+                         <p class="text-danger" th:if="${#fields.hasErrors('contactno')}" th:Errors="${registrationDao.contactno}"></p>
+                            
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" th:field="${registrationDao.email}" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Email">
+                       <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:Errors="${registrationDao.email}"></p>
+                    
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Password</label>
+                        <input type="password" th:field="${registrationDao.password}" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Create your password">
+                        <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:Errors="${registrationDao.password}"></p>
+                            
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Address</label>
+                        <input type="text" th:field="${registrationDao.address}" class="form-control" id="exampleFormControlInput1"
+                            placeholder="Enter Your Address">
+                        <p class="text-danger" th:if="${#fields.hasErrors('address')}" th:Errors="${registrationDao.address}"></p>
+                            
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Profile</label>
+                        <input type="file" th:field="${registrationDao.profile}" class="form-control" id="exampleFormControlInput1"
+                            placeholder="choose your profile pic">
+                       <p class="text-danger" th:if="${#fields.hasErrors('profile')}" th:Errors="${registrationDao.profile}"></p>
+                            
+                    </div>
+                    <div class="mb-3" style="text-align:center; padding-bottom:5px;">
+                        <button type="submit" class="btn btn-dark " style="width:100px;">Register</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+  </body>
+</html>

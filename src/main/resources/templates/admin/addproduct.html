@@ -1,0 +1,61 @@
+<html xmlns:th="http:/www.thymeleaf.org" th:replace="admin/adminbase::layout(~{::section})">
+<head>
+</head>
+<body>
+<section>
+<div class="main-panel w-100 row ms-auto"  style="margin-right: -55% !important;">
+        <div class="content-wrapper pb-0" style="margin: auto;">
+        <h1 class="text-center">Add product</h1>
+        <div class="row px-3">
+        
+        <form th:object="${productDao}" method="post" enctype="multipart/form-data">
+        <table class="table table-bordered" style="margin:30px auto;">
+        <tr>
+        <th>Enter Product Id :</th>
+        <td><input type="text" th:field="${productDao.pid}" style="border:0px;"  placeholder="enter product id..." required="required"></td>
+        
+        </tr>
+        
+        <tr>
+        <th>Enter Product Name :</th>
+        <td><input type="text" th:field="${productDao.pname}" style="border:0px;" placeholder="enter product name..." required="required"></td>
+        </tr>
+        
+        <tr>
+        <th>Enter Product Description :</th>
+        <td><input type="text" th:field="${productDao.pdesc}" style="border:0px;" placeholder="enter product description..." required="required"></td>
+         </tr>
+        
+        <tr>
+        <th>Enter Product price :</th>
+        <td><input type="text" th:field="${productDao.pprice}" style="border:0px;" placeholder="enter product price..." required="required"></td>
+        </tr>
+        
+        <tr>
+        <th>Add Product Image</th>
+        <td><input type="file" th:field="${productDao.pimage}" style="border:0px;" placeholder="add product image..." required="required"></td>
+        </tr>
+        
+        <tr>
+        <td class="text-center" colspan="2">
+        <button type="submit" class="btn btn-primary" >Add Product</button>
+        </td>
+        </tr>
+        
+       
+        
+        </table> 
+        
+        </form>
+        </div>
+
+        </div>
+        
+        
+       
+      </div>
+     
+
+</section>
+</body>
+</html>
